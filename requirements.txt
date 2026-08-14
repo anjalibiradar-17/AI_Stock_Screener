@@ -6,3 +6,4 @@ scikit-learn
 plotly
 requests
 websocket-client
+pyotp
