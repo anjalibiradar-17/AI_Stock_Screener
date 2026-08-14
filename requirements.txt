@@ -8,3 +8,4 @@ requests
 websocket-client
 pyotp
 python-dotenv
+smartapi-python
