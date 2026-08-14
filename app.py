@@ -1,3 +1,4 @@
+import os
 import json
 import time
 from datetime import datetime, timedelta
@@ -32,10 +33,16 @@ st.caption("Angel One SmartAPI • NSE • SMMA • Random Forest")
 @st.cache_data
 def load_stocks():
 
-    df = pd.read_csv("nse_equity.csv")
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    df = pd.read_csv(os.path.join(BASE_DIR, "nse_equity.csv"))
     df.columns = df.columns.str.strip()
 
-    with open("OpenAPIScripMaster.json", "r", encoding="utf-8") as f:
+    with open(
+         os.path.join(BASE_DIR, "OpenAPIScripMaster.json"),
+         "r",
+         encoding="utf-8"
+    ) as f:
+        
         master = json.load(f)
 
     token_map = {}
